@@ -100,10 +100,7 @@ source $ZSH/oh-my-zsh.sh
  alias config="subl -w ~/.zshrc"
  alias gpfwl="git push --force-with-lease"
  alias refresh="git pull && dev down && dev up"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias web="dev cd web && code ."
-alias shop="dev cd shop && code ."
-alias id="dev cd identity && code ."
+alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias lint="yarn run sewing-kit lint './app/sections/**/*.{ts,graphql,tsx,js}' --no-styles --no-markdown --no-graphql-fixtures --no-json"
 
