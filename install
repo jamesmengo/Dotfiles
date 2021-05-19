@@ -12,12 +12,20 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
+# Install OhMyZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Configure ZSH Profile
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 
-git clone git@github.com:Shopify/dev-test-runner /src/github.com/shopify/dev-test-runner
+# Install Extensions
 EXTENSIONS_DIR=/home/${USER}/.vscode-server/extensions
+
+# Extension: Dev-Test-Runner
+git clone git@github.com:Shopify/dev-test-runner /src/github.com/shopify/dev-test-runner
 cp "$(find /src/github.com/shopify/dev-test-runner/*.vsix | tail -1)" "${EXTENSIONS_DIR}/dev-test-runner.vsix"
 /usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "${EXTENSIONS_DIR}/dev-test-runner.vsix"
+
+# Extension: GitLens
+/usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "eamodio.gitlens"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
