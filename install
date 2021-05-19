@@ -15,4 +15,9 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 
+git clone git@github.com:Shopify/dev-test-runner /src/github.com/shopify/dev-test-runner
+EXTENSIONS_DIR=/home/${USER}/.vscode-server/extensions
+cp "$(find /src/github.com/shopify/dev-test-runner/*.vsix | tail -1)" "${EXTENSIONS_DIR}/dev-test-runner.vsix"
+/usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "${EXTENSIONS_DIR}/dev-test-runner.vsix"
+
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
