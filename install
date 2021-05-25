@@ -28,4 +28,8 @@ cp "$(find /src/github.com/shopify/dev-test-runner/*.vsix | tail -1)" "${EXTENSI
 # Extension: GitLens
 /usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "eamodio.gitlens"
 
+# Extension: Highlighting
+/usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "jduponchelle.rainbow-end"
+/usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "byi8220.indented-block-highlighting"
+
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
