@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='subl -w'
+  export EDITOR='code'
 fi
 
 # Compilation flags
@@ -99,11 +99,10 @@ fi
 # Example aliases
 alias config="$EDITOR ~/.zshrc"
 alias gpfwl="git push --force-with-lease"
-alias refresh="git pull && dev down && dev up"
-alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias lint="yarn run sewing-kit lint './app/sections/**/*.{ts,graphql,tsx,js}' --no-styles --no-markdown --no-graphql-fixtures --no-json"
+alias sc="spin code"
+alias style="dev style --include-branch-commits"
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
+export PATH=/opt/homebrew/bin:$PATH
 
