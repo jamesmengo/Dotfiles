@@ -97,10 +97,13 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias config="$EDITOR ~/.zshrc"
+alias config="code -r ~/.zshrc"
 alias gpfwl="git push --force-with-lease"
 alias sc="spin code"
-alias style="dev style --include-branch-commits"
+alias style="dev style"
+alias styleb="dev style --include-branch-commits"
+alias stylet="dev style && bin/srb typecheck"
+alias tc="bin/srb typecheck"
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
