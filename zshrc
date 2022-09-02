@@ -99,11 +99,11 @@ fi
 # Example aliases
 alias config="code -r ~/.zshrc"
 alias gpfwl="git push --force-with-lease"
-alias sc="spin code"
-alias style="dev style"
-alias styleb="dev style --include-branch-commits"
-alias stylet="dev style && bin/srb typecheck"
-alias tc="bin/srb typecheck"
+alias scode="spin code"
+alias ds="dev style"
+alias dsb="dev style --include-branch-commits"
+alias dt="dev test"
+alias dtb="dev test --include-branch-commits"
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
