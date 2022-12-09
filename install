@@ -23,6 +23,8 @@ chmod +x starship_install.sh
 
 # Install OhMyZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
+
 # Configure ZSH Profile
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 
@@ -33,15 +35,3 @@ EXTENSIONS_DIR=/home/${USER}/.vscode-server/extensions
 /usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "github.vscode-pull-request-github"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-
-unalias grb
-function grb {
-  if [ $# -eq 0 ]
-  then
-    base="$(git symbolic-ref -q refs/remotes/origin/HEAD | cut -f4 -d/)"
-  else
-    base=$1
-  fi
-  branch=`git branch --show-current`
-  git fetch && git rebase -i $base
-}

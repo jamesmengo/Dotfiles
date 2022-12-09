@@ -121,3 +121,5 @@ function grb {
   fi
   git fetch && git rebase -i $base
 }
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
