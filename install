@@ -29,15 +29,7 @@ ln -sf ~/dotfiles/zshrc ~/.zshrc
 # Install Extensions
 EXTENSIONS_DIR=/home/${USER}/.vscode-server/extensions
 
-# Extension: GitLens
-/usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "eamodio.gitlens"
-
 # Extension: Github Pull Request
 /usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "github.vscode-pull-request-github"
 
-# Extension: Highlighting
-/usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "jduponchelle.rainbow-end"
-/usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "byi8220.indented-block-highlighting"
-
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-
