@@ -119,7 +119,8 @@ function grb {
   else
     base=$1
   fi
-  git fetch && git rebase -i $base
+  git fetch origin $base
+  git rebase -i $base
 }
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
