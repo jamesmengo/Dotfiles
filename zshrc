@@ -110,3 +110,14 @@ alias dtb="dev test --include-branch-commits"
 export PATH=/opt/homebrew/bin:$PATH
 
 eval "$(starship init zsh)"
+
+unalias grb
+function grb {
+  if [ $# -eq 0 ]
+  then
+    base="$(git symbolic-ref -q refs/remotes/origin/HEAD | cut -f4 -d/)"
+  else
+    base=$1
+  fi
+  git fetch && git rebase -i $base
+}

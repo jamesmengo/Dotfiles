@@ -13,7 +13,7 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 #Git Config
-git config --global core.editor "code --wait"
+git config --global core.editor "code"
 git config --global pull.rebase true
 
 # Install Starship
@@ -33,3 +33,15 @@ EXTENSIONS_DIR=/home/${USER}/.vscode-server/extensions
 /usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "github.vscode-pull-request-github"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+unalias grb
+function grb {
+  if [ $# -eq 0 ]
+  then
+    base="$(git symbolic-ref -q refs/remotes/origin/HEAD | cut -f4 -d/)"
+  else
+    base=$1
+  fi
+  branch=`git branch --show-current`
+  git fetch && git rebase -i $base
+}
