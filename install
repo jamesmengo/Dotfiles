@@ -16,6 +16,11 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 git config --global core.editor "code --wait"
 git config --global pull.rebase true
 
+# Install Starship
+curl -o starship_install.sh https://starship.rs/install.sh
+chmod +x starship_install.sh
+./starship_install.sh -b /opt/dev/bin/user -y
+
 # Install OhMyZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Configure ZSH Profile
@@ -35,3 +40,4 @@ EXTENSIONS_DIR=/home/${USER}/.vscode-server/extensions
 /usr/bin/code --extensions-dir="${EXTENSIONS_DIR}" --install-extension "byi8220.indented-block-highlighting"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+

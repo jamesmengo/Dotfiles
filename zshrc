@@ -97,7 +97,7 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias config="code -r ~/.zshrc"
+alias config="code ~/.zshrc"
 alias gpfwl="git push --force-with-lease"
 alias scode="spin code"
 alias ds="dev style"
@@ -109,3 +109,4 @@ alias dtb="dev test --include-branch-commits"
 
 export PATH=/opt/homebrew/bin:$PATH
 
+eval "$(starship init zsh)"
