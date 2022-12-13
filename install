@@ -28,7 +28,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plug
 # Configure ZSH Profile
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 
-code --install-extension 	GitHub.vscode-pull-request-github
-code --install-extension 	eamodio.gitlens
-
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
