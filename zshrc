@@ -96,29 +96,25 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias config="code ~/.zshrc"
-alias gpfwl="git push --force-with-lease"
-alias scode="spin code"
-alias ds="dev style"
-alias dsb="dev style --include-branch-commits"
-alias dt="dev test"
-alias dtb="dev test --include-branch-commits"
 
+# Aliases
+# Alias to open the .zshrc file in Visual Studio Code
+alias config="code -r ~/.zshrc"
+# Alias for git push with force and lease
+alias gpfwl="git push --force-with-lease"
+alias shopify-dev='/Users/$USER/bin/shopify'
+alias gcob='git checkout $(git branch | fzf)'
+alias gbd='git branch -D $(git branch | fzf -m)'
+
+# Source the dev.sh file if it exists
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
+# Add Homebrew bin directory to the PATH
 export PATH=/opt/homebrew/bin:$PATH
 
+# Evaluate the shell environment for Homebrew
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+# Initialize Starship prompt
 eval "$(starship init zsh)"
 
-unalias grb
-function grb {
-  if [ $# -eq 0 ]
-  then
-    base="$(git symbolic-ref -q refs/remotes/origin/HEAD | cut -f4 -d/)"
-  else
-    base=$1
-  fi
-  git fetch origin $base
-  git rebase -i $base
-}
